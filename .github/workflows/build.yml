@@ -112,7 +112,8 @@ jobs:
             type=sha
           labels: |
             maintainer=rm-hull
-            org.opencontainers.image.description=REST API for GPS routes
+            org.opencontainers.image.description=fetchs specific weather imagery from GOV.UK Met Office, applies image processing (like smoothing), and makes it available for consumption via a HTTP service.
+            org.opencontainers.image.source = "https://github.com/map-services/metoffice-uk-weather-overlays"
             org.opencontainers.image.licenses=MIT
 
       - name: Build and push Docker image
