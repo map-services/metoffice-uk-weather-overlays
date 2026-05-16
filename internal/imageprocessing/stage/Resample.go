@@ -3,7 +3,7 @@ package stage
 import (
 	"image"
 
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal/imageprocessing"
+	"github.com/map-services/metoffice-uk-weather-overlays/internal/imageprocessing"
 	"golang.org/x/image/draw"
 )
 

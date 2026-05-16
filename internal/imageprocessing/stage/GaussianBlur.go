@@ -2,7 +2,7 @@ package stage
 
 import (
 	"github.com/anthonynsimon/bild/blur"
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal/imageprocessing"
+	"github.com/map-services/metoffice-uk-weather-overlays/internal/imageprocessing"
 )
 
 type GaussianBlurStage struct {

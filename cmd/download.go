@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/map-services/metoffice-uk-weather-overlays/internal"
 	"github.com/rm-hull/godx"
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal"
 )
 
 func Download(rootDir string, poolSize int) error {

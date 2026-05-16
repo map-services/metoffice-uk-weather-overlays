@@ -4,7 +4,7 @@ import (
 	"image"
 	"image/color"
 
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal/imageprocessing"
+	"github.com/map-services/metoffice-uk-weather-overlays/internal/imageprocessing"
 )
 
 type GreyscaleStage struct{}

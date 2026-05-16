@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/joho/godotenv"
-	"github.com/rm-hull/metoffice-uk-weather-overlays/cmd"
+	"github.com/map-services/metoffice-uk-weather-overlays/cmd"
 	"github.com/spf13/cobra"
 )
 

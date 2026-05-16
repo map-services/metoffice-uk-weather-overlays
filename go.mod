@@ -1,4 +1,4 @@
-module github.com/rm-hull/metoffice-uk-weather-overlays
+module github.com/map-services/metoffice-uk-weather-overlays
 
 go 1.26
 

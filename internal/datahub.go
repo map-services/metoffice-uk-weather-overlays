@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"net/url"
 
-	metoffice "github.com/rm-hull/metoffice-uk-weather-overlays/internal/models/met_office"
+	metoffice "github.com/map-services/metoffice-uk-weather-overlays/internal/models/met_office"
 )
 
 type DataHubClient interface {

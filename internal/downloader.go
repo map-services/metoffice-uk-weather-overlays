@@ -12,9 +12,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal/imageprocessing"
-	"github.com/rm-hull/metoffice-uk-weather-overlays/internal/imageprocessing/stage"
-	metoffice "github.com/rm-hull/metoffice-uk-weather-overlays/internal/models/met_office"
+	"github.com/map-services/metoffice-uk-weather-overlays/internal/imageprocessing"
+	"github.com/map-services/metoffice-uk-weather-overlays/internal/imageprocessing/stage"
+	metoffice "github.com/map-services/metoffice-uk-weather-overlays/internal/models/met_office"
 )
 
 type Processor struct {
