@@ -6,7 +6,7 @@ require (
 	github.com/Depado/ginprom v1.8.3
 	github.com/anthonynsimon/bild v0.17.1
 	github.com/chai2010/webp v1.4.0
-	github.com/gin-contrib/pprof v1.5.5
+	github.com/gin-contrib/pprof v1.5.6
 	github.com/gin-gonic/gin v1.12.0
 	github.com/joho/godotenv v1.5.1
 	github.com/kettek/apng v0.0.0-20250827064933-2bb5f5fcf253
