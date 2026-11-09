@@ -56,14 +56,17 @@ func ScheduleCleanupJob(c *cron.Cron, rootDir string) error {
 	schedule := "0 1 * * *"
 	log.Printf("Starting CRON job to cleanup old overflow forecasts (schedule=%s)", schedule)
 	_, err := c.AddFunc(schedule, func() {
-		cleanupOldOverflowForecasts(rootDir)
+		now := time.Now()
+		sevenDaysAgo := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -7)
+		cleanupOldForecasts(rootDir, sevenDaysAgo, 24)
+
+		threeMonthsAgo := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, -3, 0)
+		cleanupOldForecasts(rootDir, threeMonthsAgo, 0)
 	})
 	return err
 }
 
-func cleanupOldOverflowForecasts(rootDir string) {
-	now := time.Now()
-	cutoff := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location()).AddDate(0, 0, -7)
+func cleanupOldForecasts(rootDir string, cutoffDate time.Time, cutoffHour int) {
 
 	err := filepath.WalkDir(rootDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -89,13 +92,13 @@ func cleanupOldOverflowForecasts(rootDir string) {
 		dateStr := matches[2]
 		hourStr := matches[3]
 
-		forecastDate, err := time.ParseInLocation("2006/01/02", dateStr, now.Location())
+		forecastDate, err := time.ParseInLocation("2006/01/02", dateStr, cutoffDate.Location())
 		if err != nil {
 			log.Printf("cleanup: could not parse date from path %q: %v", path, err)
 			return nil
 		}
 
-		if !forecastDate.Before(cutoff) {
+		if !forecastDate.Before(cutoffDate) {
 			return nil
 		}
 
@@ -105,7 +108,7 @@ func cleanupOldOverflowForecasts(rootDir string) {
 			return nil
 		}
 
-		if hour >= 24 {
+		if hour >= cutoffHour {
 			log.Printf("Deleting old overflow forecast: %s", path)
 			if err := os.Remove(path); err != nil {
 				log.Printf("Failed to delete %s: %v", path, err)
